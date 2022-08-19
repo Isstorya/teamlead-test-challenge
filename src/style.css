@@ -25,7 +25,7 @@
 .promoHead {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: none;
@@ -68,6 +68,7 @@ img {
   justify-content: center;
   align-items: center;
   color: #141414;
+  box-shadow: 3px 6px 10px #141414;
 }
 .promoElement > * {
   margin: 20px;
@@ -97,7 +98,7 @@ img {
     flex-flow: column;
     align-items: center;
   }
-  .consistBlock{
+  .consistBlock {
     flex-flow: row;
     max-width: none;
     width: 100%;
@@ -113,7 +114,6 @@ img {
   padding: 15px;
   justify-content: center;
   align-items: center;
-
 }
 .consistElement > img {
   width: 100%;
@@ -156,9 +156,9 @@ img {
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 200px
+  width: 200px;
 }
-.price > *{
+.price > * {
   font-size: 45px;
   font-weight: bold;
   width: 100%;
@@ -167,6 +167,45 @@ img {
 .oldPrice {
   font-size: 30px;
   background: linear-gradient(white 45%, red 55%, white 55%);
+}
+.anim {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 .timer {
   width: 100%;
@@ -180,12 +219,13 @@ form {
   padding: 15px;
   border: solid 1px #e7e7e7;
   border-radius: 8px;
+  box-shadow: 3px 6px 20px #141414;
 }
 .formElement {
   display: flex;
   flex-flow: column;
   width: 100%;
-  align-items: center; 
+  align-items: center;
   margin-top: 8px;
 }
 .formElementTitle {
@@ -198,4 +238,16 @@ form {
   height: 40px;
   margin-top: 15px;
   padding: 8px;
+  content: "hello";
+}
+[type="button"] {
+  background: #ff9c00;
+}
+.hint {
+  align-self: flex-end;
+  float: right;
+  margin: 5px;
+  font-size: 12px;
+  color: rgb(250, 70, 70);
+  font-weight: 600;
 }

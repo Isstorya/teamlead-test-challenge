@@ -135,7 +135,7 @@
       </div>
       <div class="orderForm" id="orderForm">
         <div class="price">
-          <div class="newPrice">5990</div>
+          <div class="newPrice anim">5990</div>
           <div class="oldPrice">3490</div>
         </div>
         <div class="timer"></div>
@@ -149,10 +149,12 @@
           <div class="formElement">
             <div class="formElementTitle">ФИО</div>
             <input type="text" name="name" id="nameForm" />
+            <div class="hintNameForm hint"></div>
           </div>
           <div class="formElement">
             <div class="formElementTitle">Телефон</div>
             <input type="tel" name="phone" id="phoneForm" />
+            <div class="hintPhoneForm hint"></div>
           </div>
           <div class="formElement">
             <input type="button" value="Отправить" />
@@ -179,6 +181,45 @@
           document.querySelector(".timer").innerHTML = "EXPIRED";
         }
       }, 1000);
+
+      document.querySelector("#nameForm").addEventListener("focus", (event) => {
+        const div = document.querySelector(".hintNameForm");
+        div.innerHTML = "Иванов Иван Иванович";
+
+        document
+          .querySelector("#nameForm")
+          .addEventListener("blur", (event) => {
+            div.innerHTML = "";
+          });
+      });
+
+      document
+        .querySelector("#phoneForm")
+        .addEventListener("focus", (event) => {
+          const div = document.querySelector(".hintPhoneForm");
+          div.innerHTML = "89997775544";
+
+          document
+            .querySelector("#phoneForm")
+            .addEventListener("blur", (event) => {
+              div.innerHTML = "";
+            });
+        });
+
+      document
+        .querySelector("#phoneForm")
+        .addEventListener("keyup", (event) => {
+          if (isNaN(+event.key)) {
+            const form = document.querySelector("#phoneForm");
+            const value = form.value.split("");
+            value.pop();
+            form.value = value.join("");
+            form.className = "anim";
+            setTimeout(() => {
+              form.className = "";
+            }, 1000);
+          }
+        });
     </script>
   </body>
 </html>

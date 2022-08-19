@@ -260,6 +260,7 @@ form {
   border: solid 1px #ff9c00;
   border-radius: 10px;
   margin: 20px;
+  box-shadow: 3px 6px 10px #141414;
 }
 .btn > a {
   display: flex;
